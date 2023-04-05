@@ -140,10 +140,10 @@ app.delete("/delete/:id_detail_transaksi", auth, async (req, res) => { // endpoi
 app.patch("/edit/:id_detail_transaksi", auth, async (req, res) => { // endpoint untuk mengubah data detail_transaksi
   const param = { id_detail_transaksi: req.params.id_detail_transaksi }; // inisialisasi parameter yang akan dikirimkan melalui parameter
   const data = { // inisialisasi data yang akan diubah
-   id_transaksi: req.body.id_transaksi,
-   id_menu: req.body.id_menu,
-   harga: req.body.harga,
-   jumlah: req.body.jumlah,
+    id_transaksi: req.body.id_transaksi,
+    id_menu: req.body.id_menu,
+    harga: req.body.harga,
+    jumlah: req.body.jumlah,
   };
 
   detail_transaksi.findOne({ where: param }).then((result) => { // mengambil data detail_transaksi berdasarkan id detail_transaksi yang dikirimkan melalui parameter

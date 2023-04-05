@@ -4,6 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "setup": "npx sequelize-cli db:create ; npx sequelize-cli db:migrate",
+    "reset": "npx sequelize-cli db:reset",
+    "auto": "node scripts/setup.js",
+    "dev": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

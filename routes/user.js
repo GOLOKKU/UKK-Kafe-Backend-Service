@@ -171,12 +171,12 @@ app.delete("/delete/:id_user", auth, async (req, res) => { // endpoint untuk men
 app.patch("/edit/:id_user", auth, async (req, res) => { // endpoint untuk mengubah data user berdasarkan id user
   const param = { id_user: req.params.id_user }; // inisialisasi parameter untuk query update data
   const data = { // inisialisasi data user yang akan diubah dengan data yang dikirimkan melalui body request
-   nama_user: req.body.nama_user,
-   role: req.body.role,
-   username: req.body.username,
-   password: req.body.password,
-   resultArr: {},
- };
+    nama_user: req.body.nama_user,
+    role: req.body.role,
+    username: req.body.username,
+    password: req.body.password,
+    resultArr: {},
+  };
 
   // cek password
   if (data.password) { // jika password dikirimkan melalui body request
@@ -225,9 +225,9 @@ app.patch("/edit/:id_user", auth, async (req, res) => { // endpoint untuk mengub
 
 // search user
 app.get("/search/:nama_user", auth, async (req, res) => { // endpoint untuk mencari data user berdasarkan nama user
-  user 
+  user
     .findAll({ // query untuk mencari data user berdasarkan nama user
-      where: { 
+      where: {
         [Op.or]: [ // query untuk mencari data user berdasarkan nama user
           { nama_user: { [Op.like]: "%" + req.params.nama_user + "%" } },
         ],

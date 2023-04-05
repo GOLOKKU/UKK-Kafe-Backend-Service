@@ -33,5 +33,5 @@ app.use("/detail_transaksi", detail_transaksi); //implementasi endpoint detail_t
 
 //run server
 app.listen(PORT, () => {
-  console.log("server run on port " + PORT); //menampilkan pesan di console
+  console.log("server run on port http://localhost:" + PORT); //menampilkan pesan di console
 });

@@ -221,7 +221,7 @@ app.get("/search/:nomor_meja", auth, async (req, res) => { // endpoint untuk men
       },
     })
     .then((result) => { // jika berhasil
-      if(result == null){ // jika data tidak ditemukan
+      if (result == null) { // jika data tidak ditemukan
         res.status(404).json({ // mengembalikan response dengan status code 404 dan pesan data tidak ditemukan
           status: "error",
           message: "data tidak ditemukan",

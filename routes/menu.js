@@ -187,9 +187,9 @@ app.patch("/edit/:id_menu", upload.single("gambar"), auth, async (req, res) => {
 
 // mencari menu
 app.get("/search/:nama_menu", auth, async (req, res) => { // endpoint untuk mencari data menu berdasarkan nama menu
-  menu 
+  menu
     .findAll({ // query untuk mencari data menu berdasarkan nama menu
-      where: { 
+      where: {
         [Op.or]: [ // query untuk mencari data menu berdasarkan nama menu
           { nama_menu: { [Op.like]: "%" + req.params.nama_menu + "%" } },
         ],

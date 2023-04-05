@@ -83,38 +83,39 @@ app.get("/getById/:id", auth, async (req, res) => { // endpoint untuk mengambil 
 // get transaksi by id user
 app.get("/getByIdUser/:id_user", auth, async (req, res) => { // endpoint untuk mengambil data transaksi berdasarkan id user
   await transaksi
-  .findAll({
-    where: { id_user: req.params.id_user },
-    include: [ // join tabel user dan meja
-      {
-        model: user,
-        as: "user",
-      },
-      {
-        model: model.meja,
-        as: "meja",
-      },
-    ]
-  , }) // mengambil data transaksi berdasarkan id user yang dikirimkan melalui parameter
-  .then((result) => { // jika berhasil
-    if (result) {
-      res.status(200).json({ // mengembalikan response dengan status code 200 dan data transaksi
-        status: "success",
-        data: result,
-      });
-    } else { // jika data tidak ditemukan
-      res.status(404).json({ // mengembalikan response dengan status code 404 dan pesan data tidak ditemukan
+    .findAll({
+      where: { id_user: req.params.id_user },
+      include: [ // join tabel user dan meja
+        {
+          model: user,
+          as: "user",
+        },
+        {
+          model: model.meja,
+          as: "meja",
+        },
+      ]
+      ,
+    }) // mengambil data transaksi berdasarkan id user yang dikirimkan melalui parameter
+    .then((result) => { // jika berhasil
+      if (result) {
+        res.status(200).json({ // mengembalikan response dengan status code 200 dan data transaksi
+          status: "success",
+          data: result,
+        });
+      } else { // jika data tidak ditemukan
+        res.status(404).json({ // mengembalikan response dengan status code 404 dan pesan data tidak ditemukan
+          status: "error",
+          message: "data tidak ditemukan",
+        });
+      }
+    })
+    .catch((error) => { // jika gagal
+      res.status(400).json({ // mengembalikan response dengan status code 400 dan pesan error
         status: "error",
-        message: "data tidak ditemukan",
+        message: error.message,
       });
-    }
-  })
-  .catch((error) => { // jika gagal
-    res.status(400).json({ // mengembalikan response dengan status code 400 dan pesan error
-      status: "error",
-      message: error.message,
     });
-  });
 });
 
 // create transaksi
@@ -223,7 +224,7 @@ app.get("/filter/tgl_transaksi/:tgl_transaksi", auth, async (req, res) => { // e
   const param = { tgl_transaksi: req.params.tgl_transaksi }; // inisialisasi parameter yang akan dikirimkan melalui parameter
 
   transaksi
-   .findAll({ // mengambil data transaksi berdasarkan tanggal transaksi yang dikirimkan melalui parameter
+    .findAll({ // mengambil data transaksi berdasarkan tanggal transaksi yang dikirimkan melalui parameter
       where: {
         tgl_transaksi: {
           [Op.between]: [
@@ -289,7 +290,7 @@ app.get("/filter/nama_user/:nama_user", auth, async (req, res) => { // endpoint 
             },
           })
           .then((result) => { // jika berhasil
-           if (result.length === 0) { // jika data tidak ditemukan
+            if (result.length === 0) { // jika data tidak ditemukan
               res.status(404).json({ // mengembalikan response dengan status code 404 dan pesan data tidak ditemukan
                 status: "error",
                 message: "data tidak ditemukan",
@@ -361,7 +362,7 @@ app.get("/filter/bulan_transaksi/:bulan_transaksi", auth, async (req, res) => {
         message: error.message,
       });
     });
-})
+});
 
 
 module.exports = app; // export module app
