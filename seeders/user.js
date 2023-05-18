@@ -13,7 +13,7 @@ module.exports = {
       }, {
         nama_user: 'manajer',
         role: 'manajer',
-        username: 'manager',
+        username: 'manajer',
         password: bcrypt.hashSync('manajer', 10),
       },
       {

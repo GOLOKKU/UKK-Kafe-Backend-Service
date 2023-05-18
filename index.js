@@ -2,6 +2,7 @@
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
+// const helmet = require("helmet");
 
 // variable port
 const PORT = 8080;
@@ -10,6 +11,7 @@ const PORT = 8080;
 const app = express(); //inisialisasi express
 app.use(cors()); //inisialisasi cors
 app.use(express.static(path.join(__dirname, "public"))); //inisialisasi static file untuk menyimpan file gambar
+//app.use(helmet());
 
 // endpoint user
 const user = require("./routes/user"); //import file user.js
@@ -30,6 +32,12 @@ app.use("/transaksi", transaksi); //implementasi endpoint transaksi
 // endpoint detail_transaksi
 const detail_transaksi = require("./routes/detail_transaksi"); //import file detail_transaksi.js
 app.use("/detail_transaksi", detail_transaksi); //implementasi endpoint detail_transaksi
+
+app.get("/ping", (req, res) => {
+  res.status(200).json({
+    message: "pong",
+  });
+})
 
 //run server
 app.listen(PORT, () => {

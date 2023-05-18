@@ -35,6 +35,8 @@ module.exports = {
   //reset
   async down(queryInterface, Sequelize) {
     await queryInterface.bulkDelete('menu', null, {});
-    fs.mkdirSync("public/image");
+    try {
+      fs.mkdirSync("public/image");
+    } catch (e) { }
   }
 };

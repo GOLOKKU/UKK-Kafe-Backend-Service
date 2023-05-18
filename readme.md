@@ -1,9 +1,9 @@
 # automated setup script
 ## note : this script will delete database and image data
 run scripts/setup.bat
-untuk di terminal
+in terminal
 ```
-scripts/setup.bat
+setup.bat
 ```
 
 # how to setup database and backend server manually
@@ -17,6 +17,6 @@ npx sequelize-cli db:seed:all # create admin account
 # reset the database
 ```
 npx sequelize-cli db:drop # delete a database
-rmdir public\image
-mkdir public\image
+rmdir public\image # delete folder
+mkdir public\image # recreate folder
 ```

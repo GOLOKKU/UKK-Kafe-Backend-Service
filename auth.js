@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken"); //import library jwt
 const SECRET_KEY = "UKK_Cafe_Kasir"; //inisialisasi secret key untuk jwt
+
 auth = (req, res, next) => { //inisialisasi fungsi auth
   let header = req.headers.authorization; //mengambil token dari header
   let token = header && header.split(" ")[1];
