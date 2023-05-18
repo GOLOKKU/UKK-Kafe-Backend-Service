@@ -1,3 +1,5 @@
+using frontend from
+https://github.com/ijlalWindhi/UKK-Kafe-Frontend-Service
 # automated setup script
 ## note : this script will delete database and image data
 run scripts/setup.bat

@@ -1,7 +1,7 @@
 //import library
 const express = require("express"); // import library express
 const bodyParser = require("body-parser"); // import library body-parser untuk mengambil data dari body request
-const auth = require("../auth"); // import fungsi auth
+const { auth } = require("../auth"); // import fungsi auth
 const { Op } = require("sequelize"); // import operator sequelize
 const multer = require("multer"); // import library multer untuk upload file
 const path = require("path"); // import library path untuk mengambil ekstensi file

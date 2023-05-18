@@ -9,18 +9,18 @@ module.exports = {
         nama_user: 'admin',
         role: 'admin',
         username: 'admin',
-        password: bcrypt.hashSync('admin', 10),
+        password: bcrypt.hashSync('123456789', 10),
       }, {
         nama_user: 'manajer',
         role: 'manajer',
         username: 'manajer',
-        password: bcrypt.hashSync('manajer', 10),
+        password: bcrypt.hashSync('123456789', 10),
       },
       {
         nama_user: 'kasir',
         role: 'kasir',
         username: 'kasir',
-        password: bcrypt.hashSync('kasir', 10),
+        password: bcrypt.hashSync('123456789', 10),
       },
       /*
       {

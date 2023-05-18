@@ -3,9 +3,8 @@ const express = require("express"); // import library express
 const bodyParser = require("body-parser"); // import library body-parser untuk mengambil data dari body request
 const bcrypt = require("bcrypt"); // import library bcrypt untuk enkripsi password
 const { Op } = require("sequelize"); // import library sequelize untuk query
-const auth = require("../auth"); // import fungsi auth
+const { auth, SECRET_KEY } = require("../auth"); // import fungsi auth
 const jwt = require("jsonwebtoken"); //import library jwt
-const SECRET_KEY = "UKK_Cafe_Kasir"; //inisialisasi secret key untuk jwt
 
 //implementasi library
 const app = express(); // inisialisasi express
