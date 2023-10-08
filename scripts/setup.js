@@ -28,8 +28,8 @@ const exec = (cmd) => {
 
 try {
 fs.rmSync("public/image", { recursive: true });
-} catch (e) { }
-cmd = (/* sh */`
+} catch (e) { return 0 }
+var cmd = (/* sh */`
 yarn # npm i
 npx sequelize-cli db:drop # delete a database
 npx sequelize-cli db:create # create a database
@@ -41,7 +41,7 @@ console.log(cmd);
 exec(cmd);
 try {
     fs.mkdirSync("public/image");
-} catch (e) { }
+} catch (e) { return 0 }
 // /* sh */ `
 // npx sequelize-cli db:drop # delete a database
 // `

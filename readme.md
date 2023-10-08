@@ -1,5 +1,7 @@
 using frontend from
 https://github.com/ijlalWindhi/UKK-Kafe-Frontend-Service
+some frontend features are broken maybe i write my own
+
 # automated setup script
 ## note : this script will delete database and image data
 run scripts/setup.bat

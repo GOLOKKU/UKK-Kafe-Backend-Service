@@ -1,6 +1,9 @@
 const jwt = require("jsonwebtoken"); //import library jwt
-const SECRET_KEY = "UKK_Cafe_Kasir"; //inisialisasi secret key untuk jwt
-
+const SECRET_KEY = String(Math.random()*Date.now() | 0);
+/* inisialisasi secret key untuk jwt di random
+jika server mengalami kebocoran source code dan env file
+server masih bisa berjalan
+*/
 const auth = (req, res, next) => { //inisialisasi fungsi auth
   let header = req.headers.authorization; //mengambil token dari header
   let token = header && header.split(" ")[1];
@@ -12,7 +15,7 @@ const auth = (req, res, next) => { //inisialisasi fungsi auth
   if (token == null) { //jika token tidak ada
     res.status(401).json({ message: "Unauthorized" }); //mengembalikan pesan unauthorized
   } else { //jika token ada
-    jwt.verify(token, SECRET_KEY, jwtHeader, (error, user) => { //verifikasi token
+    jwt.verify(token, SECRET_KEY, jwtHeader, (error) => { //verifikasi token
       if (error) { //jika token tidak valid
         res.status(401).json({ //mengembalikan pesan invalid token
           message: "Invalid token",

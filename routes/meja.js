@@ -166,7 +166,7 @@ app.patch("/edit/:id_meja", auth, async (req, res) => { // endpoint untuk mengub
             } else { // jika nomor meja belum ada
               meja
                 .update(data, { where: param }) // mengubah data meja berdasarkan id meja yang dikirimkan melalui parameter
-                .then((result) => { // jika berhasil
+                .then(() => { // jika berhasil
                   res.status(200).json({ // mengembalikan response dengan status code 200 dan pesan data berhasil diubah
                     status: "success",
                     message: "data berhasil diubah",
@@ -187,7 +187,7 @@ app.patch("/edit/:id_meja", auth, async (req, res) => { // endpoint untuk mengub
       } else { // jika data nomor meja kosong
         meja
           .update(data, { where: param }) // mengubah data meja berdasarkan id meja yang dikirimkan melalui parameter
-          .then((result) => { // jika berhasil
+          .then(() => { // jika berhasil
             res.status(200).json({ // mengembalikan response dengan status code 200 dan pesan data berhasil diubah
               status: "success",
               message: "data berhasil diubah",

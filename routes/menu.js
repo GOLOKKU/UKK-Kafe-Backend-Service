@@ -156,7 +156,7 @@ app.patch("/edit/:id_menu", upload.single("gambar"), auth, async (req, res) => {
       }
       menu
         .update(data, { where: param }) // mengubah data menu berdasarkan id menu yang dikirimkan melalui parameter
-        .then((result) => { // jika berhasil
+        .then(() => { // jika berhasil
           res.status(200).json({ // mengembalikan response dengan status code 200 dan pesan data berhasil diubah
             status: "success",
             message: "data berhasil diubah",

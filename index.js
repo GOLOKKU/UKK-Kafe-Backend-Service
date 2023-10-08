@@ -11,7 +11,15 @@ const PORT = 8080;
 const app = express(); //inisialisasi express
 app.use(cors()); //inisialisasi cors
 app.use(express.static(path.join(__dirname, "public"))); //inisialisasi static file untuk menyimpan file gambar
-app.use(helmet());
+app.use(helmet(
+  {
+    contentSecurityPolicy: {
+      directives: {
+        // scriptSrc: ["'self'", "/script/"], //prevent external script
+      },
+    }
+  }
+));
 
 // endpoint user
 const user = require("./routes/user"); //import file user.js

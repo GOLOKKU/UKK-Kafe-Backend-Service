@@ -85,7 +85,7 @@ app.post("/register", async (req, res) => { // endpoint untuk registrasi user
       },
     })
     .then((result) => { // jika berhasil
-      resultArr = result; // menyimpan data user yang ditemukan ke dalam variabel resultArr
+      var resultArr = result; // menyimpan data user yang ditemukan ke dalam variabel resultArr
       if (resultArr.length > 0) { // jika data user ditemukan
         res.status(400).json({ // mengembalikan response dengan status code 400 dan pesan error
           status: "error",
@@ -151,7 +151,7 @@ app.delete("/delete/:id_user", auth, async (req, res) => { // endpoint untuk men
   // delete data
   user
     .destroy({ where: param }) // query untuk menghapus data user berdasarkan id user
-    .then((result) => { // jika berhasil
+    .then(() => { // jika berhasil
       res.json({ // mengembalikan response dengan status code 200 dan pesan sukses
         status: "success",
         message: "user has been deleted",
@@ -191,7 +191,7 @@ app.patch("/edit/:id_user", auth, async (req, res) => { // endpoint untuk mengub
         },
       })
       .then((result) => { // jika berhasil
-        resultArr = result; // menyimpan data user yang ditemukan ke dalam variabel resultArr
+        var resultArr = result; // menyimpan data user yang ditemukan ke dalam variabel resultArr
         if (resultArr.length > 0) { // jika data user ditemukan
           res.status(400).json({ // mengembalikan response dengan status code 400 dan pesan error
             status: "error",
@@ -202,7 +202,7 @@ app.patch("/edit/:id_user", auth, async (req, res) => { // endpoint untuk mengub
   }
   user
     .update(data, { where: param }) // query untuk mengubah data user berdasarkan id user
-    .then((result) => { // jika berhasil
+    .then(() => { // jika berhasil
       res.status(200).json({ // mengembalikan response dengan status code 200 dan pesan sukses
         status: "success",
         message: "user has been updated",

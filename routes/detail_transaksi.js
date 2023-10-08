@@ -150,7 +150,7 @@ app.patch("/edit/:id_detail_transaksi", auth, async (req, res) => { // endpoint 
     if (result) { // jika data ditemukan
       detail_transaksi
         .update(data, { where: param }) // mengubah data detail_transaksi berdasarkan id detail_transaksi yang dikirimkan melalui parameter
-        .then((result) => { // jika berhasil
+        .then(() => { // jika berhasil
           res.status(200).json({ // mengembalikan response dengan status code 200 dan pesan data berhasil diubah
             status: "success",
             message: "data berhasil diubah",

@@ -3,7 +3,7 @@ const fs = require("fs");
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up(queryInterface, Sequelize) {
+  async up(queryInterface) {
     await queryInterface.bulkInsert('menu', [
       {
         nama_menu: "Kentang",
@@ -33,10 +33,10 @@ module.exports = {
   },
 
   //reset
-  async down(queryInterface, Sequelize) {
+  async down(queryInterface) {
     await queryInterface.bulkDelete('menu', null, {});
     try {
       fs.mkdirSync("public/image");
-    } catch (e) { }
+    } catch (e) { return 0}
   }
 };
